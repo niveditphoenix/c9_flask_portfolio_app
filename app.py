@@ -18,7 +18,7 @@ def profile(name):
 	#new_name = name + " is awesome..! "
 	return render_template('index.html', name=name)
 
-'''
+
 @app.route('/add_numbers', methods=['GET','POST'])
 def add_numbers_post():
 	  # --> ['5', '6', '8']
@@ -34,25 +34,7 @@ def add_numbers_post():
   	      	return render_template('add_numbers.html', result=str(total))
   	      except ValueError:
   	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
-'''
 
-@app.route('/add_numbers', methods=['GET','POST'])
-def add_numbers_post():
-	  # --> ['5', '6', '8']
-	  # print(type(request.form['text']))
-	  if request.method == 'GET':
-	  	return render_template('add_numbers.html')
-	  elif request.method == 'POST':
-			input_text_list = request.form['text'].split()
-  	      print(request.form['text'].split())
-  	      rev_list = []
-  	      try:
-  	      	for word in range(len(input_text_list)-1, -1, -1):
-  	      		#total += int(str_num)*int(str_num)
-			rev_list.append(input_text_list[word])
-  	      	return render_template('add_numbers.html', result=rev_list)
-  	      except ValueError:
-  	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
 
 @app.route('/shopping_list', methods=['GET','POST'])
 def shopping_list_post():
