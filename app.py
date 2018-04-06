@@ -15,13 +15,13 @@ def home_page():
 
 @app.route('/<name>')
 def profile(name):
-	#new_name = name + " is awesome..! "
 	return render_template('index.html', name=name)
+
 
 @app.route('/add_numbers', methods=['GET','POST'])
 def add_numbers_post():
-	   --> ['5', '6', '8']
-	   print(type(request.form['text']))
+	  # --> ['5', '6', '8']
+	  # print(type(request.form['text']))
 	  if request.method == 'GET':
 	  	return render_template('add_numbers.html')
 	  elif request.method == 'POST':
@@ -29,10 +29,11 @@ def add_numbers_post():
   	      total = 0
   	      try:
   	      	for str_num in request.form['text'].split():
-  	      		total += int(str_num)*int(str_num)
+  	      		total += int(str_num)
   	      	return render_template('add_numbers.html', result=str(total))
   	      except ValueError:
   	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
+
 
 @app.route('/shopping_list', methods=['GET','POST'])
 def shopping_list_post():
